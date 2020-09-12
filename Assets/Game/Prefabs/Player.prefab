@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3635334596697450800}
   - component: {fileID: 3635334596697462479}
   - component: {fileID: 3635334596697462478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,10 +92,11 @@ GameObject:
   - component: {fileID: 3635334596849806349}
   - component: {fileID: 3635334596849806350}
   - component: {fileID: 3635334596849806448}
+  - component: {fileID: 4668957502580247291}
   - component: {fileID: 3635334596849806351}
   - component: {fileID: 7324819334715303363}
   - component: {fileID: 4627324001162310877}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +189,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &4668957502580247291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635334596849806346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d7aab14f0926444a14ccafbfd85162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackInterval: 0.2
+  bulletPrefab: {fileID: 3680928356687288511, guid: a269114ab356ee84ab373c5fcc9fee82,
+    type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  playerCamera: {fileID: 3635334597548575553}
+  testPoint: {fileID: 5298868795401122675, guid: 548a73bf6b564ab4cb5a97d60fe1533d,
+    type: 3}
 --- !u!54 &3635334596849806351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -249,7 +271,7 @@ GameObject:
   - component: {fileID: 3635334596985591954}
   - component: {fileID: 3635334596985591957}
   - component: {fileID: 3635334596985591956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +350,7 @@ GameObject:
   - component: {fileID: 3635334597039334866}
   - component: {fileID: 3635334597039334869}
   - component: {fileID: 3635334597039334868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +430,7 @@ GameObject:
   - component: {fileID: 3635334597548575553}
   - component: {fileID: 3635334597548575552}
   - component: {fileID: 3635334597548575555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tpsCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -522,7 +544,7 @@ GameObject:
   - component: {fileID: 3635334597650291417}
   - component: {fileID: 3635334597650291420}
   - component: {fileID: 3635334597650291419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

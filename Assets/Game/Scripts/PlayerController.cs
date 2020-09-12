@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +10,14 @@ public class PlayerController : MonoBehaviour
     public float jumpForceDecrease;
     public float gravity = -9.8f;
     public float distanceToLanding = 0.2f;
+    
 
     CharacterController characterController;
     InputHandler inputHandler;
     Rigidbody myRigidBody;
     float currentGravity;
     bool wasPlanning = true;
+    float nextFireTime;
 
     void Start()
     {
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateJump()
     {
-        if (wasPlanning && inputHandler.GetJumpDelta(out float delta))
+        if (wasPlanning && inputHandler.GetJump(out float delta))
         {
             currentGravity = jumpForce * delta;
             wasPlanning = false;
@@ -55,10 +58,15 @@ public class PlayerController : MonoBehaviour
     {
         if(Physics.Raycast(transform.position - characterController.center, Vector3.down, out RaycastHit info, distanceToLanding))
         {
-            Debug.Log("Landing at: " + info.transform.name);
             wasPlanning = true;
         }
     }
+
+    public bool IsAvailableForAttack()
+    {
+        return true;
+    }
+    
 
     //private void FixedUpdate()
     //{

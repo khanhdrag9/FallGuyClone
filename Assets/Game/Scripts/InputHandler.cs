@@ -6,38 +6,41 @@ using Mirror;
 
 public class InputHandler : NetworkBehaviour
 {
+    public bool GetFire(out float delta)
+    {
+        delta = GetDeltaWithName("Fire1");
+        return delta != 0;
+    }
+
     public float GetVertical()
     {
-        if (CanInput()) return Input.GetAxis("Vertical");
-        return 0;
+        return GetDeltaWithName("Vertical");
     }
 
     public float GetHorizontal()
     {
-        if (CanInput()) return Input.GetAxis("Horizontal");
-        return 0;
+        return GetDeltaWithName("Horizontal");
     }
 
-    public bool GetJumpDelta(out float delta)
+    public bool GetJump(out float delta)
     {
-        delta = 0;
-        if (!CanInput()) 
-            return false;
-
-        delta = Input.GetAxis("Jump");
+        delta = GetDeltaWithName("Jump");
         return delta != 0;
     }
 
     public float GetMouseX()
     {
-        if(CanInput()) return Input.GetAxis("Mouse X");
-        return 0;
+        return GetDeltaWithName("Mouse X");
     } 
     
     public float GetMouseY()
     {
-        if(CanInput()) return Input.GetAxis("Mouse Y");
-        return 0;
+        return GetDeltaWithName("Mouse Y");
+    }
+
+    float GetDeltaWithName(string name)
+    {
+        return CanInput() ? Input.GetAxis(name) : 0f;
     }
 
 
@@ -51,7 +54,7 @@ public class InputHandler : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        if(Input.GetKeyUp(KeyCode.Escape))
+        if(Input.GetKeyUp(KeyCode.Backspace))
         {
             SceneManager.LoadScene("Home");
             return;
