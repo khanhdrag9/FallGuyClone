@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Mirror;
 
 public class InputHandler : NetworkBehaviour
@@ -46,19 +47,25 @@ public class InputHandler : NetworkBehaviour
         return canInput && isLocalPlayer;
     }
 
-    //private void Update()
-    //{
-    //    if (!isLocalPlayer) return;
+    private void Update()
+    {
+        if (!isLocalPlayer) return;
 
-    //    //Enable/Disable CanInput InGameplay
-    //    if(Input.GetKeyDown(KeyCode.LeftControl))
-    //    {
-    //        canInput = !canInput;
-    //    }
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Home");
+            return;
+        }
 
-    //    if (canInput)
-    //        Cursor.lockState = CursorLockMode.Locked;
-    //    else
-    //        Cursor.lockState = CursorLockMode.None;
-    //}
+        //Enable/Disable CanInput InGameplay
+        //if (Input.GetKeyDown(KeyCode.LeftControl))
+        //{
+        //    canInput = !canInput;
+        //}
+
+        //if (canInput)
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //else
+        //    Cursor.lockState = CursorLockMode.None;
+    }
 }
