@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class InputHandler : MonoBehaviour
+public class InputHandler : NetworkBehaviour
 {
     public float GetVertical()
     {
@@ -26,8 +27,38 @@ public class InputHandler : MonoBehaviour
         return delta != 0;
     }
 
+    public float GetMouseX()
+    {
+        if(CanInput()) return Input.GetAxis("Mouse X");
+        return 0;
+    } 
+    
+    public float GetMouseY()
+    {
+        if(CanInput()) return Input.GetAxis("Mouse Y");
+        return 0;
+    }
+
+
+    bool canInput = true;
     bool CanInput()
     {
-        return true;
+        return canInput && isLocalPlayer;
     }
+
+    //private void Update()
+    //{
+    //    if (!isLocalPlayer) return;
+
+    //    //Enable/Disable CanInput InGameplay
+    //    if(Input.GetKeyDown(KeyCode.LeftControl))
+    //    {
+    //        canInput = !canInput;
+    //    }
+
+    //    if (canInput)
+    //        Cursor.lockState = CursorLockMode.Locked;
+    //    else
+    //        Cursor.lockState = CursorLockMode.None;
+    //}
 }
