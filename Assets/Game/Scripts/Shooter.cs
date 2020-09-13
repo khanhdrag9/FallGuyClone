@@ -52,6 +52,7 @@ public class Shooter : NetworkBehaviour
     GameObject BulletTo(Vector3 target)
     {
         var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.layer = gameObject.layer;
         bullet.GetComponent<Bullet>().Shoot(target);
         return bullet;
     }

@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public float movementSpeed = 5f;
     public float jumpForce;
@@ -17,7 +18,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody myRigidBody;
     float currentGravity;
     bool wasPlanning = true;
-    float nextFireTime;
 
     void Start()
     {
@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
         inputHandler = GetComponent<InputHandler>();
         myRigidBody = GetComponent<Rigidbody>();
         currentGravity = gravity;
+
+        if (isLocalPlayer)
+            CreationHelper.SetLayer(transform, LayerMask.NameToLayer("Player"), false);
+        else
+            CreationHelper.SetLayer(transform, LayerMask.NameToLayer("Enemy"), false);
     }
 
     void Update()
