@@ -10,17 +10,26 @@ public enum OnStartPlayAction
 
 public class GameplayManager : MonoBehaviour
 {
+    public GameNetwork networkMgrPrefab;
+
+
     public static OnStartPlayAction OnStartAction { get; set; } = OnStartPlayAction.CREATE_AND_JOIN;
 
     GameNetwork gameNetwork;
     NetworkDiscovery networkDiscovery;
 
-    void Start()
+    void Awake()
     {
         Application.targetFrameRate = 60;
         gameNetwork = FindObjectOfType<GameNetwork>();
-        networkDiscovery = gameNetwork.GetComponent<NetworkDiscovery>();
+        if (gameNetwork == null)    //in editor
+            gameNetwork = Instantiate(networkMgrPrefab);
 
+        networkDiscovery = gameNetwork.GetComponent<NetworkDiscovery>();
+    }
+
+    void Start()
+    {
         if (OnStartAction == OnStartPlayAction.CREATE_AND_JOIN)
         {
             gameNetwork.StartHost();

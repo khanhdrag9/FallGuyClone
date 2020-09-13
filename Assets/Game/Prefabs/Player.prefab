@@ -157,7 +157,7 @@ MonoBehaviour:
   movementSpeed: 5
   jumpForce: 3
   jumpForceDecrease: 8
-  gravity: -9.8
+  gravity: -2
   distanceToLanding: 0.2
 --- !u!114 &3635334596849806350
 MonoBehaviour:
