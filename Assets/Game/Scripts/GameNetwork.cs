@@ -8,7 +8,6 @@ public class GameNetwork : NetworkManager
     public override void Start()
     {
         base.Start();
-        Application.targetFrameRate = 60;
     }
 
     public override void OnStartServer()

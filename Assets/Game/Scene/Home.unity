@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -349,7 +349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &425527251
 MonoBehaviour:
@@ -490,7 +490,7 @@ RectTransform:
   - {fileID: 732472378}
   - {fileID: 108264954}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1061,30 +1061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1703209237, guid: a9ea7aed407f2fc48a2d41e71b2ea716, type: 3}
-      propertyPath: OnServerFound.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703209237, guid: a9ea7aed407f2fc48a2d41e71b2ea716, type: 3}
-      propertyPath: OnServerFound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703209237, guid: a9ea7aed407f2fc48a2d41e71b2ea716, type: 3}
-      propertyPath: OnServerFound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703209237, guid: a9ea7aed407f2fc48a2d41e71b2ea716, type: 3}
-      propertyPath: OnServerFound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 425527252}
-    - target: {fileID: 1703209237, guid: a9ea7aed407f2fc48a2d41e71b2ea716, type: 3}
-      propertyPath: OnServerFound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDiscoveredServer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703209237, guid: a9ea7aed407f2fc48a2d41e71b2ea716, type: 3}
-      propertyPath: OnServerFound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5349717136349918344, guid: a9ea7aed407f2fc48a2d41e71b2ea716,
         type: 3}
       propertyPath: m_Name
@@ -1128,7 +1104,7 @@ PrefabInstance:
     - target: {fileID: 5349717136349918345, guid: a9ea7aed407f2fc48a2d41e71b2ea716,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5349717136349918345, guid: a9ea7aed407f2fc48a2d41e71b2ea716,
         type: 3}
@@ -1408,7 +1384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1950203736
 GameObject:

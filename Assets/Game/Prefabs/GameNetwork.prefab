@@ -48,8 +48,8 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   runInBackground: 1
   autoStartServerBuild: 1
-  showDebugMessages: 0
-  serverTickRate: 30
+  showDebugMessages: 1
+  serverTickRate: 60
   offlineScene: 
   onlineScene: 
   transport: {fileID: 5349717136349918347}
@@ -62,7 +62,8 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 3680928356687288511, guid: a269114ab356ee84ab373c5fcc9fee82, type: 3}
 --- !u!114 &5349717136349918347
 MonoBehaviour:
   m_ObjectHideFlags: 0
