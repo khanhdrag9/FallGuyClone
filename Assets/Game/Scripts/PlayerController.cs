@@ -11,13 +11,14 @@ public class PlayerController : NetworkBehaviour
     public float jumpForceDecrease;
     public float gravity = -9.8f;
     public float distanceToLanding = 0.2f;
-    
 
     CharacterController characterController;
     InputHandler inputHandler;
     Rigidbody myRigidBody;
     float currentGravity;
     bool wasPlanning = true;
+
+    Transform ghost;
 
     void Start()
     {
@@ -52,8 +53,12 @@ public class PlayerController : NetworkBehaviour
     {
         float moveVertical = inputHandler.GetVertical();
         float moveHorizontal = inputHandler.GetHorizontal();
-        Vector3 movement = new Vector3(moveHorizontal, currentGravity, moveVertical) * Time.deltaTime * movementSpeed;
+        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         movement = transform.TransformDirection(movement);
+        movement.y = currentGravity;
+        movement *= Time.deltaTime * movementSpeed;
+
+
         characterController.Move(movement);
 
         currentGravity = Mathf.Clamp(currentGravity - jumpForceDecrease * Time.deltaTime, gravity, jumpForce);
@@ -64,6 +69,14 @@ public class PlayerController : NetworkBehaviour
         if(Physics.Raycast(transform.position - characterController.center, Vector3.down, out RaycastHit info, distanceToLanding))
         {
             wasPlanning = true;
+
+            CatchingLandObject.OnRemoveObject?.Invoke(characterController);
+            CatchingLandObject catchingObject = info.transform.GetComponent<CatchingLandObject>();
+            if (catchingObject) catchingObject.AddCaughtObject(characterController);
+        }
+        else
+        {
+            CatchingLandObject.OnRemoveObject?.Invoke(characterController);
         }
     }
 
