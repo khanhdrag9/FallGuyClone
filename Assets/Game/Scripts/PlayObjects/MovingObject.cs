@@ -7,6 +7,7 @@ public class MovingObject : MonoBehaviour
     public float movementSpeed;
     public Transform[] controlleds;
     public Vector3[] destinations;
+    public int startTo;
 
     Rigidbody rb;
     int[] currentTo;
@@ -14,11 +15,13 @@ public class MovingObject : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentTo = new int[controlleds.Length];
+        SetCurrentTo(startTo);
     }
 
     void Update()
     {
+        if(destinations.Length == 0) return;
+
         for(int i = 0; i < controlleds.Length; ++i)
         {
             Move(i);
@@ -30,13 +33,21 @@ public class MovingObject : MonoBehaviour
         Transform trans = controlleds[index];
         Vector3 destination = destinations[currentTo[index]];
 
-        trans.position = Vector3.MoveTowards(trans.position, destination, movementSpeed * Time.deltaTime);
+        trans.localPosition = Vector3.MoveTowards(trans.localPosition, destination, movementSpeed * Time.deltaTime);
 
-        if (trans.position == destination)
+        if (trans.localPosition == destination)
         {
             ++currentTo[index];
             if (currentTo[index] >= destinations.Length) currentTo[index] = 0;
         }
+    }
+
+    public void SetCurrentTo(int index)
+    {
+        startTo = index;
+        currentTo = new int[controlleds.Length];
+        for(int i = 0; i < currentTo.Length; ++i)
+            currentTo[i] = index;
     }
 
     //private void FixedUpdate()
