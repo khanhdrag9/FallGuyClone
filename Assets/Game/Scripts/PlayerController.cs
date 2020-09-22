@@ -12,6 +12,11 @@ public class PlayerController : NetworkBehaviour
     public float gravity = -9.8f;
     public float distanceToLanding = 0.2f;
 
+
+    [SyncVar] float x;
+    [SyncVar] float y;
+    [SyncVar] float z;
+
     CharacterController characterController;
     InputHandler inputHandler;
     Rigidbody myRigidBody;
@@ -35,6 +40,8 @@ public class PlayerController : NetworkBehaviour
 
     void Update()
     {
+        if(!isLocalPlayer) return;
+
         UpdateJump();
         UpdateMovement();
         UpdateLanding();

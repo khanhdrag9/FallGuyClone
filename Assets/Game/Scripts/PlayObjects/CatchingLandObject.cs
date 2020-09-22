@@ -11,6 +11,8 @@ public class CatchingLandObject : MonoBehaviour
 
     Vector3 previousPosition;
 
+    public bool IsServer {get; set; } = false;
+
     private void Start()
     {
         previousPosition = transform.position;
